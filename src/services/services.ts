@@ -2,8 +2,6 @@ import { HttpMethod } from '../common/enums/enums';
 import { getStringifiedQuery } from '../helpers/helpers';
 
 const getUrl = (url: string, query: {}) => {
-    console.log('url: ', `${url}${`&${getStringifiedQuery(query)}`}`);
-
     return `${url}${`&${getStringifiedQuery(query)}`}`;
 };
 

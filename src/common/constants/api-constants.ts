@@ -8,10 +8,12 @@ export const urls: {
 };
 
 export const MOVIE_FILTER: {
+    SEARCH: string;
     UPCOMING: string;
     POPULAR: string;
     TOP_RATED: string;
 } = {
+    SEARCH: 'search',
     UPCOMING: 'upcoming',
     POPULAR: 'popular',
     TOP_RATED: 'top_rated',

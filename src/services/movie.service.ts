@@ -9,8 +9,6 @@ class Movies {
     }
 
     getMovie() {
-        console.log(this._http, this._apiPath);
-
         return `${this._http}${this._apiPath}?api_key=${this._api_key}`;
     }
 }
