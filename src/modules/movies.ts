@@ -41,30 +41,43 @@ function movies() {
         });
     }
 
+    function startRender() {
+        hideFilmContent();
+        stateHandler(popularMovies.getMovie());
+        page.selectedFilms = popularMovies.getMovie();
+    }
+
+    startRender();
+
     const buttons = document.querySelectorAll('.btn-check');
     buttons.forEach((btn) => {
         btn.addEventListener('input', () => {
             let url: string = '';
-            if (btn.id === 'popular') {
-                hideFilmContent();
-                url = popularMovies.getMovie();
-                stateHandler(url);
-            } else if (btn.id === 'upcoming') {
-                hideFilmContent();
-                url = upComingMovies.getMovie();
-                stateHandler(url);
-            } else if (btn.id === 'top_rated') {
-                hideFilmContent();
-                url = moviesByRate.getMovie();
-                stateHandler(url);
+            switch (btn.id) {
+                case 'popular':
+                    hideFilmContent();
+                    url = popularMovies.getMovie();
+                    stateHandler(url);
+                    break;
+                case 'upcoming':
+                    hideFilmContent();
+                    url = upComingMovies.getMovie();
+                    stateHandler(url);
+                    break;
+                case 'top_rated':
+                    hideFilmContent();
+                    url = moviesByRate.getMovie();
+                    stateHandler(url);
+                    break;
+
+                default:
+                    hideFilmContent();
+                    url = popularMovies.getMovie();
+                    stateHandler(url);
+                    break;
             }
             page.selectedFilms = url;
         });
-    });
-
-    const cardItem = document.querySelector('row');
-    cardItem?.addEventListener('click', (e: Event) => {
-        console.log(e.target.id);
     });
 
     const loadMoreBtn = document.querySelector('#load-more');
