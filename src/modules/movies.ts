@@ -4,11 +4,16 @@ import {
     upComingMovies,
     moviesByRate,
 } from '../common/constants/constants';
-import { hideFilmContent, stateHandler } from '../helpers/helpers';
+import {
+    hideFilmContent,
+    hiderandomFilm,
+    stateHandler,
+} from '../helpers/helpers';
 
 function movies() {
     function startRender() {
         hideFilmContent();
+        hiderandomFilm();
         stateHandler(popularMovies.getMovie());
         page.selectedFilms = popularMovies.getMovie();
     }
