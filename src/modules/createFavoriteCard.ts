@@ -3,7 +3,6 @@ import { imgUrlHandler } from '../helpers/helpers';
 
 function createFavoriteCard(path: string, overview: string, date: string) {
     const favorite = document.createElement('div');
-    console.log(favorite);
     favorite.classList.add('col-12', 'p-2', 'favorit-inner');
     favorite.innerHTML = `
                         <div class="card shadow-sm">

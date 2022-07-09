@@ -1,9 +1,5 @@
 import { urls } from '../common/constants/constants';
-import {
-    hideFaviriteFilm,
-    imgUrlHandler,
-    setStorage,
-} from '../helpers/helpers';
+import { imgUrlHandler, setStorage } from '../helpers/helpers';
 
 class MovieCard {
     src: string;

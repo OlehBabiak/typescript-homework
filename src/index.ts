@@ -7,8 +7,4 @@ export async function render(): Promise<void> {
     hideFilmContent();
     movies();
     form();
-    const cardItem = document.querySelector('row');
-    cardItem?.addEventListener('click', (e: Event) => {
-        console.log(e.target.id);
-    });
 }
