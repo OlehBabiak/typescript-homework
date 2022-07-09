@@ -1,6 +1,7 @@
 import { page } from '../common/constants/constants';
 import { MovieConfig } from '../interfaces/movie-config';
 import { MovieCard } from '../modules/moviItem';
+import rundomMovie from '../modules/randomMovie';
 import { getCard } from '../services/services';
 
 export const getStringifiedQuery = (query: {}) => {
@@ -19,6 +20,11 @@ export const hideFilmContent = (): void => {
     });
 };
 
+export const hiderandomFilm = (): void => {
+    let randomfilm: any = document.querySelector('.py-lg-5');
+    randomfilm.remove();
+};
+
 export const imgUrlHandler = (url: string, src: string) => {
     if (url && src) {
         return `${url}${src}`;
@@ -31,16 +37,24 @@ export function stateHandler(url: string) {
     let state: [] = [];
     getCard(url, page).then((res) => {
         state = res.results;
+        const randomFilm = state[getRandomInt(state.length)];
+        const { original_title, overview, poster_path } = randomFilm;
+        rundomMovie(overview, original_title, poster_path);
         state.forEach(
-            ({ overview, poster_path, release_date, id }: MovieConfig) => {
+            ({ overview, poster_path, id, release_date }: MovieConfig) => {
                 new MovieCard(
                     poster_path,
                     overview,
-                    release_date,
+
                     '.container .row',
-                    id
+                    id,
+                    release_date
                 ).render();
             }
         );
     });
 }
+
+export const getRandomInt = (max: number) => {
+    return Math.floor(Math.random() * max);
+};

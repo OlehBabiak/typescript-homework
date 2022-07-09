@@ -4,15 +4,15 @@ import { imgUrlHandler } from '../helpers/helpers';
 class MovieCard {
     src: string;
     overview: string;
-    date: string;
+    date?: string;
     parent: any;
     id: string;
     constructor(
         src: string,
         overview: string,
-        date: string,
         parentSelector: any,
-        id: string
+        id: string,
+        date?: string
     ) {
         this.src = src;
         this.overview = overview;
