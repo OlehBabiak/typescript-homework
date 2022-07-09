@@ -1,5 +1,9 @@
 import { urls } from '../common/constants/constants';
-import { imgUrlHandler } from '../helpers/helpers';
+import {
+    hideFaviriteFilm,
+    imgUrlHandler,
+    setStorage,
+} from '../helpers/helpers';
 
 class MovieCard {
     src: string;
@@ -7,33 +11,35 @@ class MovieCard {
     date?: string;
     parent: any;
     id: string;
+    fill?: string;
     constructor(
         src: string,
         overview: string,
         parentSelector: any,
         id: string,
-        date?: string
+        date?: string,
+        fill?: string
     ) {
         this.src = src;
         this.overview = overview;
         this.date = date;
         this.parent = document.querySelector(parentSelector);
         this.id = id;
+        this.fill = '#ff000078';
     }
 
     render() {
         const element = document.createElement('div');
         element.classList.add('col-lg-3', 'col-md-4', 'col-12', 'p-2');
-        element.id = this.id;
         element.innerHTML = `
-        <div class="card shadow-sm">
+        <div id=${this.id} class="card shadow-sm">
                             <img
                                 src=${imgUrlHandler(urls.image, this.src)}
                             />
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 stroke="red"
-                                fill="#ff000078"
+                                fill=${this.fill}
                                 width="50"
                                 height="50"
                                 class="bi bi-heart-fill position-absolute p-2"
@@ -62,6 +68,9 @@ class MovieCard {
                             </div>
                         </div>
         `;
+
+        element.id = this.id;
+        setStorage(element);
         this.parent.append(element);
     }
 }

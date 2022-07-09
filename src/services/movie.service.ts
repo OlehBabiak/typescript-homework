@@ -11,6 +11,10 @@ class Movies {
     getMovie() {
         return `${this._http}${this._apiPath}?api_key=${this._api_key}`;
     }
+
+    getMovieById(id: string) {
+        return `${this._http}${this._apiPath}${id}?api_key=${this._api_key}`;
+    }
 }
 
 export { Movies };

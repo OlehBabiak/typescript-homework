@@ -26,6 +26,7 @@ export const moviesByName = new Movies(urls.api, ApiPath.SEARCH, api_key);
 export const popularMovies = new Movies(urls.api, ApiPath.POPULAR, api_key);
 export const moviesByRate = new Movies(urls.api, ApiPath.RATE, api_key);
 export const upComingMovies = new Movies(urls.api, ApiPath.UOCOMING, api_key);
+
 export const page: { page: number; selectedFilms: string } = {
     selectedFilms: '',
     page: 2,
