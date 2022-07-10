@@ -13,15 +13,13 @@ class MovieCard {
         overview: string,
         parentSelector: any,
         id: string,
-        date?: string,
-        fill?: string
+        date?: string
     ) {
         this.src = src;
         this.overview = overview;
         this.date = date;
         this.parent = document.querySelector(parentSelector);
         this.id = id;
-        this.fill = '#ff000078';
     }
 
     render() {
@@ -31,11 +29,12 @@ class MovieCard {
         <div id=${this.id} class="card shadow-sm">
                             <img
                                 src=${imgUrlHandler(urls.image, this.src)}
+                                alt='poster'
                             />
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 stroke="red"
-                                fill=${this.fill}
+                                fill=#ff000078
                                 width="50"
                                 height="50"
                                 class="bi bi-heart-fill position-absolute p-2"

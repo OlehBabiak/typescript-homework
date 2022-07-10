@@ -7,8 +7,8 @@ import createFavoriteCard from './createFavoriteCard';
 
 function favoritMovies() {
     let arrFromLocalStorage = JSON.parse(localStorage.getItem('arr') || '[]');
-
-    arrFromLocalStorage.forEach((el: any) => {
+    hideFaviriteFilm();
+    arrFromLocalStorage.forEach((el: string) => {
         if (el) {
             const favoriteMovies = new Movies(
                 urls.api,
@@ -17,7 +17,6 @@ function favoritMovies() {
             );
 
             getCard(favoriteMovies.getMovieById(el), page).then((res) => {
-                hideFaviriteFilm();
                 createFavoriteCard(
                     res.poster_path,
                     res.overview,
